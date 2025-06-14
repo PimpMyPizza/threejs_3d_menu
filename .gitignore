@@ -1,1 +1,11 @@
 node_modules
+
+# Ignore Blender files
+*.blend*
+
+# Also ignore GLB files. Users will have to create them themselves for copywrite reasons
+*.glb
+models/
+
+# Same for potential HDR files
+*.hdr
