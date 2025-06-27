@@ -375,24 +375,24 @@ function animate() {
         const elapsed = (performance.now() - enterKeyFlyStartTime) / 1000; // in seconds
 
         // Fly away movements
-        camera.position.z -= elapsed * 5;
-        camera.position.y -= elapsed * 2;
+        camera.position.z -= elapsed * 3;
+        camera.position.y += elapsed * 2;
         // slight shake
         camera.position.x += Math.sin(elapsed * 5) * 0.1;
 
         // Zoom out effect
         camera.fov = THREE.MathUtils.lerp(camera.fov, 100, 0.05);
         camera.updateProjectionMatrix();
-        if (!enterKeyUrlOpened && elapsed > 0.5) {
+        if (!enterKeyUrlOpened && elapsed > 1.5) {
             enterKeyUrlOpened = true;
             window.location.href = 'https://stilmant.dev/blog/';
         }
     }
     else if (f1KeyFlyStartTime != 0) {
-        const elapsed = (performance.now() - enterKeyFlyStartTime) / 1000; // in seconds
+        const elapsed = (performance.now() - f1KeyFlyStartTime) / 1000; // in seconds
 
         // Fly away movements
-        camera.position.z -= elapsed * 5;
+        camera.position.z += elapsed * 3;
         camera.position.y -= elapsed * 2;
         // slight shake
         camera.position.x += Math.sin(elapsed * 5) * 0.1;
@@ -400,13 +400,13 @@ function animate() {
         // Zoom out effect
         camera.fov = THREE.MathUtils.lerp(camera.fov, 100, 0.05);
         camera.updateProjectionMatrix();
-        if (!f1KeyUrlOpened && elapsed > 1.0) {
+        if (!f1KeyUrlOpened && elapsed > 1.5) {
             f1KeyUrlOpened = true;
             window.location.href = 'https://stilmant.dev/auth/realms/Organization/protocol/openid-connect/auth?client_id=menu-page&redirect_uri=https://stilmant.dev/menu&response_type=code';
         }
     }
     else if (spaceKeyFlyStartTime != 0) {
-        const elapsed = (performance.now() - enterKeyFlyStartTime) / 1000; // in seconds
+        const elapsed = (performance.now() - spaceKeyFlyStartTime ) / 1000; // in seconds
 
         // Fly away movements
         camera.position.z -= elapsed * 5;
